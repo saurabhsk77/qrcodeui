@@ -28,8 +28,17 @@ function QRCode() {
         },
       });
     } else {
-      setValue("");
-      setLoader("ENTER URL AND CLICK Generate QR...");
+      if (response.status == 400) {
+        setValue("");
+        setLoader("ENTER URL AND CLICK Generate QR...");
+        enqueueSnackbar("Invalid URL", {
+          variant: "error",
+          anchorOrigin: {
+            vertical: "top",
+            horizontal: "right",
+          },
+        });
+      }
     }
   }
 
