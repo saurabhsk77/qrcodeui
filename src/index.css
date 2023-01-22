@@ -30,6 +30,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: linear-gradient(to right, #ffff00, #ff1400, #ffffff);
 }
 
 h1 {
@@ -47,6 +48,8 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin-left: 10px;
+  border: 1px solid pink;
 }
 button:hover {
   border-color: #646cff;
@@ -67,4 +70,28 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.box {
+  border-radius: 10px;
+  border: 2px solid red;
+  height: auto;
+  padding: inherit;
+}
+
+.search {
+  margin-bottom: 10px;
+}
+.qr_code {
+  color: aquamarine;
+  font-weight: bold;
+}
+
+#input-field {
+  padding: 10px;
+  border-radius: 10px;
+  border-color: transparent;
+  background: aliceblue;
+  color: black;
+  font-size: inherit;
 }

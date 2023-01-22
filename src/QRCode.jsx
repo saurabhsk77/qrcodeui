@@ -17,7 +17,7 @@ function QRCode() {
     );
     if (response.status == 200) {
       const data = await response.text();
-      setQRCode(data);
+      data && setQRCode(data);
     } else {
       setValue("");
       setLoader("ENTER URL AND CLICK Generate QR...");
@@ -37,6 +37,7 @@ function QRCode() {
     setLoader("fetching QR...");
     setQRCode(null);
     if (value.length < 1) {
+      setLoader("ENTER URL AND CLICK Generate QR...");
       window.alert("enter some text");
     } else {
       fetchQRCode();
@@ -45,6 +46,7 @@ function QRCode() {
 
   const handleChange = (e) => {
     setQRCode("");
+    setLoader("ENTER URL AND CLICK Generate QR...");
     setValue(e.target.value);
   };
 
