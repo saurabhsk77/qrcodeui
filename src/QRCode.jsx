@@ -1,9 +1,11 @@
+import { useSnackbar } from "notistack";
 import React, { useState } from "react";
 
 function QRCode() {
   const [qrCode, setQRCode] = useState(null);
   const [value, setValue] = useState("");
   const [loader, setLoader] = useState("ENTER URL AND CLICK Generate QR...");
+  const { enqueueSnackbar } = useSnackbar();
 
   async function fetchQRCode() {
     const response = await fetch(
@@ -18,6 +20,13 @@ function QRCode() {
     if (response.status == 200) {
       const data = await response.text();
       data && setQRCode(data);
+      enqueueSnackbar("QR Generated Successfully", {
+        variant: "success",
+        anchorOrigin: {
+          vertical: "top",
+          horizontal: "right",
+        },
+      });
     } else {
       setValue("");
       setLoader("ENTER URL AND CLICK Generate QR...");
